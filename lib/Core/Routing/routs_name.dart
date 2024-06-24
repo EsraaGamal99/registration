@@ -1,6 +1,6 @@
 abstract class RoutsName {
-  static const  welcomeScreen             = '/';
-  static const formScreen                 = '/formScreen';
+  static const  formScreen             = '/';
+ // static const  formScreen                = '/formScreen';
   static const  specifyScreen             = '/specifyScreen';
   static const  materialScreen            = '/materialScreen';
   static const  courseScreen              = '/courseScreen';
