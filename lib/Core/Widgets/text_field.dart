@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../Theming/colors.dart';
+
 class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
@@ -65,18 +67,29 @@ class CustomTextField extends StatelessWidget {
             ],
           ),
         ),
-        border: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0x66373C3F),
-        ),
-        ),
         hintStyle: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: Color(0x66373C3F),
         ),
         contentPadding: EdgeInsets.symmetric(vertical: 11.h, horizontal: 16.w),
-        // You can add more customization like focusedBorder, errorText, etc.
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Color(0x66373C3F),
+          ),
+        ),
+
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Color(0x66373C3F),
+          ),
       ),
-    );
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: kPrimaryColor,
+        ),
+      ),
+      // focusedErrorBorder: OutlineInputBorder(
+      //   borderSide: const BorderSide(color: Color(0x66373C3F),
+      //   ),
+      // ),
+    ),);
   }
 }

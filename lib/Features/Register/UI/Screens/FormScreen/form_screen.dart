@@ -36,6 +36,9 @@ class FormScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.h),
               CustomTextField(
+                hintText: ' كلمة المرور',
+              ),SizedBox(height: 20.h),
+              CustomTextField(
                 hintText: 'تأكيد كلمة المرور',
               ),
               SizedBox(height: 30.h),
