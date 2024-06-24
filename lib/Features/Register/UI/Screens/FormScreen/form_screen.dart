@@ -1,13 +1,21 @@
-import 'package:elmadsarah/Core/Helpers/assets.dart';
 import 'package:elmadsarah/Core/Widgets/custom_material_button.dart';
-import 'package:elmadsarah/Core/Widgets/custom_outlined_button.dart';
-import 'package:elmadsarah/Core/Widgets/text_field.dart';
 import 'package:elmadsarah/Features/Register/UI/Screens/WelcomeScreen/Widgets/new_register_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'widgets/google_and_apple_signUp.dart';
+import 'widgets/user_information_section.dart';
 
 class FormScreen extends StatelessWidget {
-  const FormScreen({super.key});
+  final TextEditingController fNameController = TextEditingController();
+  final TextEditingController lNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  FormScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,59 +23,40 @@ class FormScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              NewRegisterText(),
-              CustomTextField(
-                hintText: 'الاسم الأول',
-              ),
-              SizedBox(height: 20.h),
-              CustomTextField(
-                hintText: 'اسم العالة',
-              ),
-              SizedBox(height: 20.h),
-              CustomTextField(
-                hintText: 'رقم الموبايل',
-              ),
-              SizedBox(height: 20.h),
-              CustomTextField(
-                hintText: 'البريد الألكتروني',
-              ),
-              SizedBox(height: 20.h),
-              CustomTextField(
-                hintText: ' كلمة المرور',
-              ),SizedBox(height: 20.h),
-              CustomTextField(
-                hintText: 'تأكيد كلمة المرور',
-              ),
-              SizedBox(height: 30.h),
-              CustomMaterialButton(
-                onPressed: () {},
-                label: 'تسجيل جديد',
-              ),
-              SizedBox(height: 30.h),
-              Center(
-                child: Text(
-                  'او تسجيل الدخول باستخدام',
-                  style: TextStyle(color: Colors.grey),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const NewRegisterText(),
+                UserInformationSection(
+                    fNameController: fNameController,
+                    lNameController: lNameController,
+                    phoneController: phoneController,
+                    emailController: emailController,
+                    passwordController: passwordController,
+                    confirmPasswordController: confirmPasswordController),
+                CustomMaterialButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      // Perform registration logic here
+                    }
+                  },
+                  label: 'تسجيل جديد',
                 ),
-              ),
-              SizedBox(height: 15.h),
-              CustomOutlinedButton(
-                text: 'Google',
-                icon: AssetsData.googleIcon,
-              ),
-              SizedBox(height: 20.h),
-              CustomOutlinedButton(
-                text: 'Apple',
-                icon: AssetsData.appleIcon,
-              ),
-            ],
+                SizedBox(height: 30.h),
+                const Center(
+                  child: Text(
+                    'او تسجيل الدخول باستخدام',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
+                const GoogleAndAppleSignUp(),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-

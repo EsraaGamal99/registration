@@ -18,3 +18,9 @@ final RegExp endsWithDotCom = RegExp(
   multiLine: false,
 );
 
+final RegExp lettersFormat = RegExp(
+  r'[a-zA-Z\u0600-\u06FF]',
+  caseSensitive: false,
+  multiLine: false,
+);
+

@@ -17,6 +17,12 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool? readOnly;
   final String? labelText;
+  final bool obscureText;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
+  final String? errorText;
+  final Color? fillColor;
+  final void Function()? onTap;
 
   const CustomTextField(
       {super.key,
@@ -31,12 +37,20 @@ class CustomTextField extends StatelessWidget {
       this.controller,
       this.validator,
       this.readOnly,
-      this.labelText});
+      this.labelText,
+      this.obscureText = false,
+      this.suffixIcon,
+      this.prefixIcon,
+      this.errorText,
+      this.fillColor,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      textInputAction: TextInputAction.done,
+      readOnly: readOnly ?? false,
+      obscureText: obscureText,
+      textInputAction: TextInputAction.next,
       validator: validator,
       controller: controller,
       onFieldSubmitted: onFieldSubmitted,
@@ -45,7 +59,14 @@ class CustomTextField extends StatelessWidget {
       inputFormatters: inputFormatters,
       cursorHeight: 20.h,
       decoration: InputDecoration(
-          label : RichText(
+        errorText: errorText,
+        suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
+        isDense: true,
+        hintText: hintText,
+        labelText: labelText,
+        alignLabelWithHint: true,
+        label: RichText(
           text: TextSpan(
             children: [
               TextSpan(
@@ -54,7 +75,6 @@ class CustomTextField extends StatelessWidget {
                   color: Color(0x66373C3F),
                   fontSize: 16.0,
                   fontWeight: FontWeight.w600,
-
                 ),
               ),
               TextSpan(
@@ -74,22 +94,26 @@ class CustomTextField extends StatelessWidget {
         ),
         contentPadding: EdgeInsets.symmetric(vertical: 11.h, horizontal: 16.w),
         border: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0x66373C3F),
+          borderSide: const BorderSide(
+            color: Color(0x66373C3F),
           ),
         ),
 
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color(0x66373C3F),
+          borderSide: const BorderSide(
+            color: Color(0x66373C3F),
           ),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: kPrimaryColor,
         ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: kPrimaryColor,
+          ),
+        ),
+        // focusedErrorBorder: OutlineInputBorder(
+        //   borderSide: const BorderSide(color: Color(0x66373C3F),
+        //   ),
+        // ),
       ),
-      // focusedErrorBorder: OutlineInputBorder(
-      //   borderSide: const BorderSide(color: Color(0x66373C3F),
-      //   ),
-      // ),
-    ),);
+    );
   }
 }

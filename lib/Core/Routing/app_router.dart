@@ -10,7 +10,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: RoutsName.formScreen,
-        builder: (context, state) => const FormScreen(),
+        builder: (context, state) => FormScreen(),
       ),
       GoRoute(
         path: RoutsName.formScreen,
@@ -18,7 +18,7 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: const FormScreen(),
+          child: FormScreen(),
         ),
       ),
       // Add other routes here as needed
