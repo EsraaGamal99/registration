@@ -9,9 +9,8 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: RoutsName.welcomeScreen,
-        name: RoutsName.welcomeScreen, // Add name here
-        builder: (context, state) => const WelcomeScreen(),
+        path: RoutsName.formScreen,
+        builder: (context, state) => const FormScreen(),
       ),
       GoRoute(
         path: RoutsName.formScreen,
