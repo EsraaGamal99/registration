@@ -1,3 +1,4 @@
+import 'package:elmadsarah/Core/Theming/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +27,7 @@ class VerticalLineAndText extends StatelessWidget {
                 Expanded(
                   child: Text(
                     text,
-                    style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500,color: greyColor),
                   ),
                 ),
               ],

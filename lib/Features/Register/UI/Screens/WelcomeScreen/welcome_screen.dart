@@ -1,12 +1,14 @@
+import 'package:elmadsarah/Core/Routing/routs_name.dart';
 import 'package:elmadsarah/Core/Theming/colors.dart';
 import 'package:elmadsarah/Core/Widgets/custom_material_button.dart';
 import 'package:elmadsarah/Features/Register/UI/Screens/WelcomeScreen/Widgets/have_an_account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import 'Widgets/choose_parent_or_student.dart';
 import 'Widgets/new_register_text.dart';
-import 'Widgets/vertical_line_and_text.dart';
+import '../../../../../Core/Widgets/vertical_line_and_text.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -32,7 +34,7 @@ class WelcomeScreen extends StatelessWidget {
             Center(
               child: CustomMaterialButton(
                 onPressed: () {
-
+                  GoRouter.of(context).pushNamed(RoutsName.formScreen);
                 },
                 label: 'التالي',
               ),
