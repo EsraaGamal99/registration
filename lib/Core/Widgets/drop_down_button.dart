@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DropdownButtonExample extends StatefulWidget {
+class CustomDropdownButton extends StatefulWidget {
+  const CustomDropdownButton({super.key});
+
   @override
-  _DropdownButtonExampleState createState() => _DropdownButtonExampleState();
+  _CustomDropdownButtonState createState() => _CustomDropdownButtonState();
 }
 
-class _DropdownButtonExampleState extends State<DropdownButtonExample> {
+class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   String? _selectedGender; // Variable to hold selected gender
 
   @override

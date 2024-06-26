@@ -8,7 +8,7 @@ import 'package:go_router/go_router.dart';
 
 import 'Widgets/choose_parent_or_student.dart';
 import 'Widgets/new_register_text.dart';
-import 'Widgets/vertical_line_and_text.dart';
+import '../../../../../Core/Widgets/vertical_line_and_text.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

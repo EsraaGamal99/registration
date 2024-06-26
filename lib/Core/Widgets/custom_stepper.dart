@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomStepper extends StatelessWidget {
-  final int totalSteps;
   final int currentStep;
 
-  const CustomStepper({super.key, required this.totalSteps, required this.currentStep});
+  const CustomStepper({super.key, required this.currentStep});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: List.generate(totalSteps, (index) {
+      children: List.generate(8, (index) {
         return Expanded(
           child: Container(
             height: 10,

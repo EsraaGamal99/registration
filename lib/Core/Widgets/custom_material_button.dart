@@ -8,7 +8,7 @@ class CustomMaterialButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.label,
-    this.isFullWidth = true, this.backgroundColor, this.labelColor,
+    this.isFullWidth = true, this.backgroundColor, this.labelColor, this.width,
   });
 
   final void Function()? onPressed;
@@ -16,29 +16,34 @@ class CustomMaterialButton extends StatelessWidget {
   final bool isFullWidth;
   final Color? backgroundColor;
   final Color? labelColor;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 70.h,
-      width: isFullWidth ? double.infinity : null,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(40.r),
-          ),
-          padding: const EdgeInsets.all(10),
-          backgroundColor: backgroundColor ?? kPrimaryColor,
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.r),
+        border: Border.all(color: kPrimaryColor),
+        color: (label=='السابق') ? Colors.white : kPrimaryColor,
+      ),
+      width: isFullWidth ? double.infinity : width,
+      child: MaterialButton(
         onPressed: onPressed,
         child: Center(
-          child: Text(
-            label,
-            style: TextStyle(
-              color: labelColor??Colors.white,
-              fontSize: 25.sp,
-              fontWeight: FontWeight.w500,
-            ),
+          child: Row(
+            children: [
+              (label=='السابق') ?Icon( Icons.keyboard_double_arrow_right_outlined,color: kPrimaryColor, ):SizedBox(),
+              SizedBox(width: 10.w,),
+              Text(
+                label,
+                style: TextStyle(
+                  color: (label=='السابق') ?kPrimaryColor:Colors.white,
+                  fontSize: 25.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              (label!='السابق') ?Icon( Icons.keyboard_double_arrow_left_outlined,color: Colors.white, ):SizedBox(),
+            ],
           ),
         ),
       ),

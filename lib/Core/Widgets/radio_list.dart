@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+
 class RadioListTileExample extends StatefulWidget {
+  final Function(String) onSelected;
+
+  RadioListTileExample({required this.onSelected});
+
   @override
   _RadioListTileExampleState createState() => _RadioListTileExampleState();
 }
 
 class _RadioListTileExampleState extends State<RadioListTileExample> {
-  String? _selectedOption = 'yes'; // Initial selected option
+  String? _selectedOption;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         RadioListTile<String>(
           title: Text('نعم لدي إضافة'),
@@ -18,6 +24,8 @@ class _RadioListTileExampleState extends State<RadioListTileExample> {
           onChanged: (value) {
             setState(() {
               _selectedOption = value;
+              widget.onSelected(value!);
+              Navigator.pop(context);
             });
           },
         ),
@@ -28,6 +36,8 @@ class _RadioListTileExampleState extends State<RadioListTileExample> {
           onChanged: (value) {
             setState(() {
               _selectedOption = value;
+              widget.onSelected(value!);
+              Navigator.pop(context);
             });
           },
         ),

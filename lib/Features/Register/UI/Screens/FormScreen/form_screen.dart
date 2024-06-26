@@ -1,7 +1,9 @@
+import 'package:elmadsarah/Core/Routing/routs_name.dart';
 import 'package:elmadsarah/Core/Widgets/custom_material_button.dart';
 import 'package:elmadsarah/Features/Register/UI/Screens/WelcomeScreen/Widgets/new_register_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'widgets/google_and_apple_signUp.dart';
 import 'widgets/user_information_section.dart';
 
@@ -39,7 +41,7 @@ class FormScreen extends StatelessWidget {
                 CustomMaterialButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // Perform registration logic here
+                      GoRouter.of(context).pushNamed(RoutsName.secondFormScreen);
                     }
                   },
                   label: 'تسجيل جديد',

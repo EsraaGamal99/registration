@@ -1,5 +1,6 @@
 import 'package:elmadsarah/Core/Routing/routs_name.dart';
 import 'package:elmadsarah/Features/Register/UI/Screens/FormScreen/form_screen.dart';
+import 'package:elmadsarah/Features/Register/UI/Screens/SeconfFormScreen/second_form_screen.dart';
 import 'package:elmadsarah/Features/Register/UI/Screens/WelcomeScreen/welcome_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,8 +10,17 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: RoutsName.formScreen,
-        builder: (context, state) => FormScreen(),
+        path: RoutsName.welcomeScreen,
+        builder: (context, state) => SecondFormScreen(),
+      ),
+      GoRoute(
+        path: RoutsName.secondFormScreen,
+        name: RoutsName.secondFormScreen, // Add name here
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: FormScreen(),
+        ),
       ),
       GoRoute(
         path: RoutsName.formScreen,
@@ -18,7 +28,7 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: FormScreen(),
+          child: const SecondFormScreen(),
         ),
       ),
       // Add other routes here as needed
