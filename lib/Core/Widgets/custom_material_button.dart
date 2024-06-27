@@ -10,7 +10,7 @@ class CustomMaterialButton extends StatelessWidget {
     required this.label,
     this.isFullWidth = true, this.backgroundColor, this.labelColor, this.width,
   });
-///////new
+
   final void Function()? onPressed;
   final String label;
   final bool isFullWidth;
